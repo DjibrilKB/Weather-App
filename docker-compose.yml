@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  weather-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_KEY=${API_KEY}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+# Ajoutez un fichier .env pour gérer les variables sensibles
